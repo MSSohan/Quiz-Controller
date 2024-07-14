@@ -56,18 +56,16 @@ GPIO.setup(Team5,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 GPIO.setup(Team6,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 GPIO.setup(reset,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 GPIO.setup(buzzer,GPIO.OUT)
-GPIO.output(buzzer,GPIO.HIGH)
+GPIO.output(buzzer,GPIO.LOW)
 # GPIO.output(buzzer,GPIO.HIGH)
 def timeFunc():
     millis = lambda: ((time.time()*1000))
 
 
 def test():
-    
     li =[]
     millis = lambda: ((time.time()))
     Buzzer= False
-    Sound =True
     try:
         while True:  
             if GPIO.input(Team1)==0:
@@ -103,6 +101,7 @@ def test():
             if GPIO.input(reset)==0:
                 li=[]
                 Sound = True
+                Buzzer = False
                 print(li)
             try:
                 if len(li)>=1:
@@ -137,18 +136,16 @@ def test():
                 else:
                     SixthRes['text'] = " "
                 
-                if len(li)==1 and Buzzer == False and Sound == True:
-                    GPIO.output(buzzer,GPIO.LOW)
+                if len(li) == 1 and Buzzer == False:
+                    GPIO.output(buzzer,GPIO.HIGH)
                     trigger = millis()
                     Buzzer = True
-                    Sound=False
                 print(trigger,millis())
-                if Buzzer ==True and (millis()-trigger)>1:
-                    GPIO.output(buzzer,GPIO.HIGH)
-                    Buzzer = False
-
+                if Buzzer == True and (millis()-trigger) >= 1:
+                    GPIO.output(buzzer,GPIO.LOW)
+                    
                 #else:
-                 #   GPIO.output(buzzer,GPIO.HIGH)
+                   # GPIO.output(buzzer,GPIO.LOW)
             except:
                 x=0
             
