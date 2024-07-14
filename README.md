@@ -32,6 +32,9 @@ Additionally, there's a low voltage warning displayed on the Raspberry Pi. This 
 
 <img src="/media/img3.jpg" alt="Low Voltage Warning" width="600"/>
 
+### For Removing Screen
+Press Ctrl + Alt + T .Then close the Tkinter GUI windows
+
 ### Bugs to be Fixed
 Here are a few issues we've identified that need fixing:
 - [x] Timing issue: This has been resolved.
@@ -45,3 +48,4 @@ Finally, here are some images from the manufacturing process of the quiz control
 <img src="/media/img1.jpg" alt="Manufacturing" width="400"/>
 
 Feel free to reach out if you have any questions or need further assistance with the setup. Happy quizzing!
+
